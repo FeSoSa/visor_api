@@ -1,0 +1,26 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar o arquivo .env
+.env
+
+# Ignorar logs de erros ou outros arquivos de log
+*.log
+
+# Ignorar arquivos de sistema do macOS
+.DS_Store
+
+# Ignorar arquivos de sistema do Windows
+Thumbs.db
+
+# Ignorar diretórios de build temporários
+dist/
+build/
+
+# Ignorar diretórios do editor de código
+.vscode/
+.idea/
+
+# Ignorar os arquivos de configuração do npm
+package-lock.json
+yarn.lock
