@@ -18,7 +18,7 @@ const MagazinesSchema = new Schema({
 
 // Armor Schema
 const ArmorSchema = new Schema({
-    type: { type: String, enum: ['H', 'M', 'L', 'SH'], required: true },
+    type: { type: String, enum: ['H', 'M', 'L', 'SH', ' '], required: true },
     hp: { type: Number, required: true },
     maxHp: { type: Number, required: true },
     slots: { type: Number, required: true },
@@ -56,23 +56,16 @@ const ItemSchema = new Schema({
 });
 
 // Player Schema
-const PlayerSchema = new Schema({
-    userRegistry: { type: String, required: true },
-    registry: { type: String, required: true },
+const EnemieSchema = new Schema({
+    obs: { type: String, required: false },
     name: { type: String, required: true },
-    codename: { type: String, required: true },
-    photo: { type: String, required: false },
-    status: { type: String, required: true },
-    class: { type: String, enum: ['sniper', 'assault', 'engeneer', 'medic', 'inteligence'], required: true },
-    gunSelected: { type: String, enum: ['primary', 'secondary'] },
 
     maxHp: { type: Number, required: true },
     hp: { type: Number, required: true },
     armor: { type: ArmorSchema, required: true },
-    magazines: { type: MagazinesSchema, required: true },
-    guns: { type: GunsSchema, required: true },
-    utilitaries: { type: [ItemSchema], required: true },
+    magazines: { type: [MagazineSlotSchema], required: true },
+    gun: { type: GunSchema, required: true },
     items: { type: [ItemSchema], required: true },
 });
 
-module.exports = mongoose.model('Player', PlayerSchema);
+module.exports = mongoose.model('Enemie', EnemieSchema);

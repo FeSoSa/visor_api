@@ -8,9 +8,7 @@ const bodyParser = require("body-parser");
 const User = require("./models/user");
 
 app.use(bodyParser.json());
-app.use(cors({
-    origin: ["https://meu-app.vercel.app", "http://localhost:3000", 'http://192.168.18.216:3000'], // Substitua pelo IP da máquina servidor
-}));
+app.use(cors());
 
 const { randomUUID } = require("crypto");
 
@@ -65,6 +63,8 @@ const userRoutes = require("./routes/user")(wss);
 app.use("/user", userRoutes);
 const gameRoutes = require("./routes/game")(wss);
 app.use("/game", gameRoutes);
+const enemiesRoutes = require("./routes/enemies")(wss);
+app.use("/enemie", enemiesRoutes);
 
 app.get("/", (req, res) => {
     console.log("Recebendo algo aqui", req.body);
