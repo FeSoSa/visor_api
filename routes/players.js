@@ -1,5 +1,5 @@
 const express = require("express");
-const Player = require("../models/players");
+const { Player } = require("../models/players");
 const WebSocket = require("ws");
 
 const router = express.Router();

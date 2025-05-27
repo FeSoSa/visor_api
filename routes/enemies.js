@@ -1,5 +1,5 @@
 const express = require("express");
-const Enemie = require("../models/enemies");
+const { Enemie } = require("../models/players");
 const WebSocket = require("ws");
 
 const router = express.Router();
