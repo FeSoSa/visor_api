@@ -108,6 +108,7 @@ const EnemieSchema = new Schema({
     magazines: { type: [MagazineSlotSchema], required: true },
     gun: { type: GunSchema, required: true },
     items: { type: [ItemSchema], required: true },
+    type: { type: String, required: false }
 });
 
 module.exports = {

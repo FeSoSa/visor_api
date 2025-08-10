@@ -73,6 +73,24 @@ module.exports = (wss) => {
         }
     });
 
+    router.delete("/clear", async (req, res) => {
+        try {
+            const enemie = await Enemie.deleteMany()
+            res.send(enemie);
+
+            wss.clients.forEach(client => {
+                if (client.readyState === WebSocket.OPEN) {
+                    const message = {
+                        event: "enemie-updated",
+                    };
+                    client.send(JSON.stringify(message));
+                }
+            });
+        } catch (err) {
+            res.status(500).send(err);
+        }
+    });
+
     // Listar 
     router.get("/list", async (req, res) => {
         try {

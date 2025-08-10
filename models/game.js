@@ -15,7 +15,9 @@ const operationSchema = new mongoose.Schema({
     dbImages: { type: [imageSchema], required: true }, // Array de imagens no banco de dados (com nome e URL)
     completeMap: { type: String }, // String para o mapa completo (provavelmente URL ou referência)
     ruinedMap: { type: String }, // String para o mapa danificado (também pode ser URL ou referência)
-    others: { type: [imageSchema] } // Array genérico para outros dados (pode ser de qualquer tipo)
+    others: { type: [imageSchema] },
+
+    megaCombat: { type: Boolean, required: false }
 });
 
 // Criando o modelo para o MongoDB
